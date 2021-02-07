@@ -1,0 +1,9 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+ name: FootballRankingMs
+subsets:
+ - addresses:
+     - ip: 9.202.5.38
+   ports:
+     - port: 9092

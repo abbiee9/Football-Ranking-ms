@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: apps/v1beta2
+metadata:
+  name: FootballRankingMs
+  namespace: dev
+  labels:
+    app: FootballRankingMs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: FootballRankingMs
+  template:
+    metadata:
+      labels:
+        app: FootballRankingMs
+    spec:
+      containers:
+        - name: FootballRankingMs
+          image: docker.io/abbiee9/FootballRankingMs:v1
+          ports:
+          - name: nfs
+            containerPort: 8500
+            protocol: TCP
+          env:
+            - name: security.user.password
+              valueFrom:
+                secretKeyRef:
+                  name: security-connection-details
+                  key: security.user.password
+            - configMapRef:
+                name: FootballRankingMsConfigMap 
