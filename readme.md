@@ -1,4 +1,4 @@
-Sample Football.json:
+ Sample Football.json:
 		
 				{
 				    "countryId": "c0bb338e-ef17-4bad-9d33-13f8ec4e7335",
@@ -16,7 +16,8 @@ Api endpoints:
 
 1. Get Endponits:
 
-	a. localhost:9092/api/ranking/fetch/{filter}/{value} --> to fetch football standings based on diff filter and its values like 	country,leauge,team.
+	a. localhost:9092/api/ranking/fetch/{filter}/{value} --> to fetch football standings based on diff filter and its values like 		country,leauge,team.
+	
 	b. localhost:9092/api/ranking/{id} --> to fetch particular football standings based on id
 	
 
@@ -44,7 +45,7 @@ Junit testing been done through Mockito framework.
 	
 
 
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 #Docker
 
@@ -73,7 +74,7 @@ Steps for building , tagging and pushinh the image to docker hub.
 	
 	
 		
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>
 
 #Kuberenetes Deploying by using dockerhub image
 
@@ -113,7 +114,7 @@ To store sensitive environment values  like db password etc.
 	  name: security-connection-details
 	  namespace: dev
 	type: Opaque
-	stringData:
+	stringData:	
 	  security.user.password: pass  
 	  
 To create this component just run following commands:
@@ -221,25 +222,28 @@ This will create pod in k8 cluster by pulling the image from container registry 
                 
 By using service and ingress just use:
 
-	localhost/controllerPath  --- for output	            
-	                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	localhost/controllerPath  --- for output	    
+	
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>
+	                
 # solution 2 by using deployment and using port-forward 
 
 Note: Without ingress and service we can test our application locally by doing port-forward on the pods but using service and ingress is a ideal way to access the application.
 
 	start kubectl port-forward podname port:port
 
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>
 
 # Solution 3 by just using deployment and exposing the pod 
 
 	1. Create a deployment yaml normally, and deploy it which creates the pod.
+	
 	2. Expose your pod by following commands:
 			
-			a. kubectl expose deployment kubernetestestdeployment --type=LoadBalancer --name=k8service
-			
-			b. the type must be LoadBalancer bcz it act as a ingress internally
-			
-			c. this command creates a service and output can be seen by entring localhost/controllerPath
+		a. kubectl expose deployment kubernetestestdeployment --type=LoadBalancer --name=k8service
+		
+		b. the type must be LoadBalancer bcz it act as a ingress internally
+		
+		c. this command creates a service and output can be seen by entring localhost/controllerPath
 			
 			
